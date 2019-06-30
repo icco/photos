@@ -29,36 +29,50 @@ class Submit extends React.Component {
     const formData = new FormData();
 
     files.forEach((file, i) => {
-      formData.append(i, file);
+      formData.append("file", file);
     });
 
     fetch(`${baseUrl}/photo/new`, {
       method: "POST",
       body: formData,
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        Authorization: "Bearer " + getToken(),
+        Authorization: `Bearer ${getToken()}` ,
       },
     })
       .then(res => res.json())
-      .then(files => {
+      .then(j => {
+        console.log(j)
         this.setState({
+          files: [j.file],
+          upload: j.upload,
           uploading: false,
-          files,
         });
       });
   };
 
   render() {
+    let file = <></>
+
+    if (this.state.files.length > 0) {
+      const fileUrl = this.state.files[0].replace("storage.googleapis.com/icco-cloud", "icco.imgix.net") + "?auto=format%2Ccompress"
+      file = (
+    <>
+      <div className="mv4">
+      Last uploaded file: <a href={fileUrl}>{fileUrl}</a>
+      </div>
+        <img className="mw-100" src={fileUrl} />
+      </>)
+    }
     return (
-      <div>
+      <div
+          className="pa4 black-80"
+      >
         <form
           autoComplete="off"
           onSubmit={e => {
             e.preventDefault();
             this.handleChange(e);
           }}
-          className="pa4 black-80"
           encType="multipart/form-data"
         >
           <div className="measure mv2">
@@ -83,6 +97,7 @@ class Submit extends React.Component {
             value="Submit"
           />
         </form>
+      {file}
       </div>
     );
   }
