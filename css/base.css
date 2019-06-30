@@ -4,6 +4,8 @@ body,
 p,
 .normal {
   font-family: "Roboto", sans-serif;
+  color: #1d1c1b;
+  background: #b1bac1;
 }
 
 h1,
