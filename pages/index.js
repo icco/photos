@@ -1,10 +1,12 @@
 import Head from "next/head";
-import Header from "@icco/react-common";
+import dynamic from 'next/dynamic';
 
 import App from "../components/App";
 import Main from "../components/Main";
 import { checkLoggedIn } from "../lib/auth";
 import { initApollo } from "../lib/init-apollo";
+
+const Header = dynamic(import("@icco/react-common"), {ssr:false});
 
 export default class extends React.Component {
   async componentDidMount() {
