@@ -35,6 +35,10 @@ class Submit extends React.Component {
     fetch(`${baseUrl}/photo/new`, {
       method: "POST",
       body: formData,
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        Authorization: "Bearer " + getToken(),
+      },
     })
       .then(res => res.json())
       .then(files => {
