@@ -36,12 +36,12 @@ class Submit extends React.Component {
       method: "POST",
       body: formData,
       headers: {
-        Authorization: `Bearer ${getToken()}` ,
+        Authorization: `Bearer ${getToken()}`,
       },
     })
       .then(res => res.json())
       .then(j => {
-        console.log(j)
+        console.log(j);
         this.setState({
           files: [j.file],
           upload: j.upload,
@@ -51,22 +51,25 @@ class Submit extends React.Component {
   };
 
   render() {
-    let file = <></>
+    let file = <></>;
 
     if (this.state.files.length > 0) {
-      const fileUrl = this.state.files[0].replace("storage.googleapis.com/icco-cloud", "icco.imgix.net") + "?auto=format%2Ccompress"
+      const fileUrl =
+        this.state.files[0].replace(
+          "storage.googleapis.com/icco-cloud",
+          "icco.imgix.net"
+        ) + "?auto=format%2Ccompress";
       file = (
-    <>
-      <div className="mv4">
-      Last uploaded file: <a href={fileUrl}>{fileUrl}</a>
-      </div>
-        <img className="mw-100" src={fileUrl} />
-      </>)
+        <>
+          <div className="mv4">
+            Last uploaded file: <a href={fileUrl}>{fileUrl}</a>
+          </div>
+          <img className="mw-100" src={fileUrl} />
+        </>
+      );
     }
     return (
-      <div
-          className="pa4 black-80"
-      >
+      <div className="pa4 black-80">
         <form
           autoComplete="off"
           onSubmit={e => {
@@ -97,7 +100,7 @@ class Submit extends React.Component {
             value="Submit"
           />
         </form>
-      {file}
+        {file}
       </div>
     );
   }
