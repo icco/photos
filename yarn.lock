@@ -709,10 +709,10 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@icco/react-common@^2019.6.30-1":
-  version "2019.6.30-1"
-  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2019.6.30-1.tgz#a6ad421bd488fb39f23eb862b3ef25e28c07f460"
-  integrity sha512-Sye5iXwosN8oT9wZVoJSNMivkD0ZxMZBhhGGD8VfO4d2hB1age+TzxLqXUW3ayOdP85scWVp8gKVmEMi9MHcfg==
+"@icco/react-common@^2019":
+  version "2019.6.30-2"
+  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2019.6.30-2.tgz#98917cc20e01f548d392805fc97cfec37db824dc"
+  integrity sha512-ZHfm4HsmtOLywEtdbkvhfKz+1IRQPB43EIkH9ueuSbu+VazwfrKkHmP3F3v4m06QtrfDIR2sRbyWWKCa2rKeBg==
   dependencies:
     next "^8.1"
     prop-types "^15.7"
