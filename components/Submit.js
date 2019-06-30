@@ -1,6 +1,4 @@
 import React from "react";
-import gql from "graphql-tag";
-import { Query, Mutation } from "react-apollo";
 import { withRouter } from "next/router";
 import Link from "next/link";
 
@@ -13,134 +11,61 @@ const baseUrl = process.env.GRAPHQL_ORIGIN.substring(
   process.env.GRAPHQL_ORIGIN.lastIndexOf("/")
 );
 
-const SaveLog = gql`
-  mutation SaveLog($content: String!, $project: String!, $code: String!) {
-    insertLog(
-      input: { code: $code, description: $content, project: $project }
-    ) {
-      id
-      datetime
-    }
-  }
-`;
-
 class Submit extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      content: "",
-      project: "",
-      code: "",
+          uploading: false,
+      files: [],
     };
   }
 
-  handleBasicChange = event => {
-    const target = event.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
-    let name = target.name;
+  handleChange = event => {
+     const files = Array.from(event.target.files)
+    this.setState({ uploading: true })
 
-    if (name == "") {
-      name = target.id;
-    }
+    const formData = new FormData()
 
-    this.setState({
-      [name]: value,
-    });
-  };
+    files.forEach((file, i) => {
+      formData.append(i, file)
+    })
 
-  handleEditorChange = value => {
-    this.setState({
-      content: value(),
-    });
+    fetch(`${baseUrl}/photo/new`, {
+      method: 'POST',
+      body: formData
+    })
+    .then(res => res.json())
+    .then(files => {
+      this.setState({
+        uploading: false,
+        files
+      })
+    })
   };
 
   render() {
     return (
-      <Mutation mutation={SaveLog}>
-        {(insertLog, { loading, error, data }) => {
-          if (loading) {
-            return <Loading key={0} />;
-          }
-
-          if (error) {
-            return <ErrorMessage message="Page not found." />;
-          }
-
-          return (
             <div>
               <form
                 autoComplete="off"
                 onSubmit={e => {
                   e.preventDefault();
-                  insertLog({
-                    variables: {
-                      content: this.state.content,
-                      project: this.state.project,
-                      code: this.state.code,
-                    },
-                  });
+                  handleChange(e)
                 }}
                 className="pa4 black-80"
               >
                 <div className="measure mv2">
-                  <label htmlFor="code" className="f6 b db mb2">
-                    Code
+                  <label htmlFor="photo" className="f6 b db mb2">
+                    Photo
                   </label>
                   <input
-                    id="code"
-                    className="input-reset db mb2"
-                    type="text"
-                    aria-describedby="code-desc"
-                    onChange={this.handleBasicChange}
-                    maxLength="3"
-                    style={{
-                      border: "none",
-                      width: "4.5ch",
-                      background:
-                        "repeating-linear-gradient(90deg, dimgrey 0, dimgrey 1ch, transparent 0, transparent 1.5ch) 0 100%/100% 2px no-repeat",
-                      font: "5ch monospace",
-                      letterSpacing: ".5ch",
-                    }}
-                  />
-                  <small id="code-desc" className="f6 black-60 db mb2">
-                    <p>Category, Focus, Introversion</p>
-                    <ol>
-                      <li>Educating</li>
-                      <li>Building</li>
-                      <li>Living</li>
-                    </ol>
-                  </small>
-                </div>
-
-                <div className="measure mv2">
-                  <label htmlFor="project" className="f6 b db mb2">
-                    Project
-                  </label>
-                  <input
-                    id="project"
+                    id="photo"
                     className="input-reset ba b--black-20 pa2 mb2 db w-100"
                     type="text"
-                    onChange={this.handleBasicChange}
-                    aria-describedby="project-desc"
+                    aria-describedby="photo-desc"
                   />
-                  <small id="project-desc" className="f6 black-60 db mb2">
-                    What project is this?
-                  </small>
-                </div>
-
-                <div className="measure mv2">
-                  <label htmlFor="content" className="f6 b db mb2">
-                    Log Entry
-                  </label>
-                  <input
-                    id="content"
-                    className="input-reset ba b--black-20 pa2 mb2 db w-100"
-                    type="text"
-                    aria-describedby="content-desc"
-                    onChange={this.handleBasicChange}
-                  />
-                  <small id="content-desc" className="f6 black-60 db mb2">
-                    What's your update?
+                  <small id="photo-desc" className="f6 black-60 db mb2">
+                    Photo uploaded
                   </small>
                 </div>
 
@@ -152,9 +77,6 @@ class Submit extends React.Component {
               </form>
             </div>
           );
-        }}
-      </Mutation>
-    );
   }
 }
 

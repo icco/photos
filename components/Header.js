@@ -11,7 +11,7 @@ class Header extends React.Component {
     let nav = (
       <Link key="/auth/sign-in" href="/auth/sign-in">
         <a className="f6 link dib dim mr3 black mr4-ns" href="/auth/sign-in">
-          sign in
+          Sign In
         </a>
       </Link>
     );

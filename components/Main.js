@@ -1,7 +1,6 @@
 import { withRouter } from "next/router";
 import React from "react";
 
-import LogList from "../components/LogList";
 import Submit from "../components/Submit";
 
 class Main extends React.Component {
@@ -9,7 +8,7 @@ class Main extends React.Component {
     let content = (
       <>
         <h1 className="f-headline-ns f-subheadline mw7 center pa4">
-          Please sign-in to see logs.
+          Please sign-in to upload photos.
         </h1>
       </>
     );
@@ -18,7 +17,6 @@ class Main extends React.Component {
       content = (
         <>
           <Submit />
-          <LogList />
         </>
       );
     }
