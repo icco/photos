@@ -20,7 +20,7 @@ export default class extends React.Component {
     return (
       <App>
         <Head>
-          <title>Etu Time Tracking</title>
+          <title>Photo Uploader</title>
         </Head>
         <Header loggedInUser={this.state.loggedInUser} noLogo />
         <Main loggedInUser={this.state.loggedInUser} />

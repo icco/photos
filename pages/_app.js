@@ -6,7 +6,7 @@ import { ApolloProvider } from "react-apollo";
 // CSS is compiled into the style.css below
 import "../style.css";
 
-class Etu extends App {
+class Photos extends App {
   render() {
     const { Component, pageProps, apolloClient } = this.props;
     return (
@@ -19,4 +19,4 @@ class Etu extends App {
   }
 }
 
-export default withApolloClient(Etu);
+export default withApolloClient(Photos);
