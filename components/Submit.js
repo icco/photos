@@ -21,7 +21,9 @@ class Submit extends React.Component {
   }
 
   handleChange = event => {
-    const files = Array.from(event.target.files);
+    const files = Array.from(
+      event.target.getElementsByTagName("input")[0].files
+    );
     this.setState({ uploading: true });
 
     const formData = new FormData();
@@ -50,9 +52,10 @@ class Submit extends React.Component {
           autoComplete="off"
           onSubmit={e => {
             e.preventDefault();
-            handleChange(e);
+            this.handleChange(e);
           }}
           className="pa4 black-80"
+          encType="multipart/form-data"
         >
           <div className="measure mv2">
             <label htmlFor="photo" className="f6 b db mb2">
@@ -61,7 +64,8 @@ class Submit extends React.Component {
             <input
               id="photo"
               className="input-reset ba b--black-20 pa2 mb2 db w-100"
-              type="text"
+              type="file"
+              accept="image/*"
               aria-describedby="photo-desc"
             />
             <small id="photo-desc" className="f6 black-60 db mb2">
