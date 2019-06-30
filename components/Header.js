@@ -34,7 +34,7 @@ class Header extends React.Component {
     if (this.props.noLogo) {
       prefix = (
         <Link href="/">
-          <a className="link dark-gray dim">
+          <a className="link dim">
             <Logo size={50} className="v-mid mh0-ns dib-ns center ph0 logo" />
           </a>
         </Link>
