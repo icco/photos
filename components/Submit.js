@@ -15,68 +15,68 @@ class Submit extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-          uploading: false,
+      uploading: false,
       files: [],
     };
   }
 
   handleChange = event => {
-     const files = Array.from(event.target.files)
-    this.setState({ uploading: true })
+    const files = Array.from(event.target.files);
+    this.setState({ uploading: true });
 
-    const formData = new FormData()
+    const formData = new FormData();
 
     files.forEach((file, i) => {
-      formData.append(i, file)
-    })
+      formData.append(i, file);
+    });
 
     fetch(`${baseUrl}/photo/new`, {
-      method: 'POST',
-      body: formData
+      method: "POST",
+      body: formData,
     })
-    .then(res => res.json())
-    .then(files => {
-      this.setState({
-        uploading: false,
-        files
-      })
-    })
+      .then(res => res.json())
+      .then(files => {
+        this.setState({
+          uploading: false,
+          files,
+        });
+      });
   };
 
   render() {
     return (
-            <div>
-              <form
-                autoComplete="off"
-                onSubmit={e => {
-                  e.preventDefault();
-                  handleChange(e)
-                }}
-                className="pa4 black-80"
-              >
-                <div className="measure mv2">
-                  <label htmlFor="photo" className="f6 b db mb2">
-                    Photo
-                  </label>
-                  <input
-                    id="photo"
-                    className="input-reset ba b--black-20 pa2 mb2 db w-100"
-                    type="text"
-                    aria-describedby="photo-desc"
-                  />
-                  <small id="photo-desc" className="f6 black-60 db mb2">
-                    Photo uploaded
-                  </small>
-                </div>
+      <div>
+        <form
+          autoComplete="off"
+          onSubmit={e => {
+            e.preventDefault();
+            handleChange(e);
+          }}
+          className="pa4 black-80"
+        >
+          <div className="measure mv2">
+            <label htmlFor="photo" className="f6 b db mb2">
+              Photo
+            </label>
+            <input
+              id="photo"
+              className="input-reset ba b--black-20 pa2 mb2 db w-100"
+              type="text"
+              aria-describedby="photo-desc"
+            />
+            <small id="photo-desc" className="f6 black-60 db mb2">
+              Photo uploaded
+            </small>
+          </div>
 
-                <input
-                  className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
-                  type="submit"
-                  value="Submit"
-                />
-              </form>
-            </div>
-          );
+          <input
+            className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
+            type="submit"
+            value="Submit"
+          />
+        </form>
+      </div>
+    );
   }
 }
 
