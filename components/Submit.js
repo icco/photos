@@ -1,10 +1,9 @@
 import React from "react";
 import { withRouter } from "next/router";
 import Link from "next/link";
+import { ErrorMessage, Loading } from "@icco/react-common";
 
 import { getToken } from "../lib/auth.js";
-import ErrorMessage from "./ErrorMessage";
-import Loading from "./Loading";
 
 const baseUrl = process.env.GRAPHQL_ORIGIN.substring(
   0,

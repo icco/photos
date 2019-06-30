@@ -709,6 +709,18 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@icco/react-common@^2019.6.30-1":
+  version "2019.6.30-1"
+  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2019.6.30-1.tgz#a6ad421bd488fb39f23eb862b3ef25e28c07f460"
+  integrity sha512-Sye5iXwosN8oT9wZVoJSNMivkD0ZxMZBhhGGD8VfO4d2hB1age+TzxLqXUW3ayOdP85scWVp8gKVmEMi9MHcfg==
+  dependencies:
+    next "^8.1"
+    prop-types "^15.7"
+    react "^16.8"
+    react-dom "^16.8"
+    react-loading "^2.0"
+    react-p5-wrapper "^0.0.4"
+
 "@types/node@>=6":
   version "12.0.10"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.0.10.tgz#51babf9c7deadd5343620055fc8aff7995c8b031"
@@ -4312,7 +4324,7 @@ prop-types@15.6.2:
     loose-envify "^1.3.1"
     object-assign "^4.1.1"
 
-prop-types@^15.6, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.6, prop-types@^15.6.2, prop-types@^15.7, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -4450,7 +4462,7 @@ react-apollo@^2.1:
     ts-invariant "^0.4.2"
     tslib "^1.9.3"
 
-react-dom@^16.7:
+react-dom@^16.7, react-dom@^16.8:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.8.6.tgz#71d6303f631e8b0097f56165ef608f051ff6e10f"
   integrity sha512-1nL7PIq9LTL3fthPqwkvr2zY7phIPjYrT0jp4HjyEQrEROnw4dG41VVwi/wfoCneoleqrNX7iAD+pXebJZwrwA==
@@ -4490,7 +4502,7 @@ react-ssr-prepass@1.0.2:
   dependencies:
     object-is "^1.0.1"
 
-react@^16.7:
+react@^16.7, react@^16.8:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react/-/react-16.8.6.tgz#ad6c3a9614fd3a4e9ef51117f54d888da01f2bbe"
   integrity sha512-pC0uMkhLaHm11ZSJULfOBqV4tIZkx87ZLvbbQYunNixAAvjnC+snJCg0XQXn9VIsttVsbZP/H/ewzgsd5fxKXw==
