@@ -736,10 +736,10 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@icco/react-common@2019.6.30-9":
-  version "2019.6.30-9"
-  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2019.6.30-9.tgz#33d63808e841e1c620a6aac3308e53c81b709a32"
-  integrity sha512-ym8T7bmoF+nbm6k/GNTLMahHkO9CYtuT92qBx4eSKOKLr40QDn8aZ8/wH8S69RfYJLtTmILX7ulWbItrPviCNQ==
+"@icco/react-common@2019.7.1-1":
+  version "2019.7.1-1"
+  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2019.7.1-1.tgz#f839196f98779a94c94eaf113409dce362cda876"
+  integrity sha512-7PoZeZyqojzPOlGXEXP3QGv5ZbCwS4c29DxWzo0rNR2RZSLL/DcUgdMv1LIRqWAhhUx4jmUBRfQg5DCdHFl2nQ==
   dependencies:
     "@babel/plugin-syntax-dynamic-import" "^7.2.0"
     prop-types "^15.7"
