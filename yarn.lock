@@ -736,10 +736,8 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@icco/react-common@2019.7.1-2":
+"@icco/react-common@../react-common":
   version "2019.7.1-2"
-  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2019.7.1-2.tgz#8cf11349eb180d5aaf845683a6b6299bbda4ae64"
-  integrity sha512-EfX22ih76qkm8XMi8fGMki3AoexQ39FYyCZ71683WgMQNM62k4rPyvzM/5KBHzo4/v9lSgmoq9p5RPtGQt7yUw==
   dependencies:
     "@babel/plugin-syntax-dynamic-import" "^7.2.0"
     prop-types "^15.7"
@@ -5037,9 +5035,9 @@ terser@3.16.1:
     source-map-support "~0.5.9"
 
 terser@^4.0.0:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/terser/-/terser-4.0.1.tgz#f2e90b453cff6fb317fc33bb277517753e3e2bef"
-  integrity sha512-27+kdMOAwb9HMtSfSL1wYDwbh+zKTSFrnT76g5M0LS14XFBEqBWvFuBCLXr0Ceoxp+nlBjCBF6GAma/aoj7COA==
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/terser/-/terser-4.0.2.tgz#580cea06c4932f46a48ed13804c93bc93c275968"
+  integrity sha512-IWLuJqTvx97KP3uTYkFVn93cXO+EtlzJu8TdJylq+H0VBDlPMIfQA9MBS5Vc5t3xTEUG1q0hIfHMpAP2R+gWTw==
   dependencies:
     commander "^2.19.0"
     source-map "~0.6.1"
