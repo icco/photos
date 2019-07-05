@@ -1,7 +1,7 @@
 import { withRouter } from "next/router";
 import React from "react";
 
-import Submit from "../components/Submit";
+import Submit from "./Submit";
 
 class Main extends React.Component {
   render() {
