@@ -729,10 +729,10 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@icco/react-common@2019.7.5-1":
-  version "2019.7.5-1"
-  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2019.7.5-1.tgz#cb66997f9c011de5fb0198068e1a0872a449fa0e"
-  integrity sha512-hFBdH0tRqT31JLWA59LjZhQXrcTNvGLzVJR/41blo81HT8Gl+nYL3/6f0wrzwKjVkxIkhG7JTRmeW8pFAkHREA==
+"@icco/react-common@2019.7.5-2":
+  version "2019.7.5-2"
+  resolved "https://registry.yarnpkg.com/@icco/react-common/-/react-common-2019.7.5-2.tgz#011a89bbc66822d7cc3729491075a588dde4a33c"
+  integrity sha512-otjvFj4PqCGDQxDxuxJeF069xr52A1g8svtJGQDqNyWYBmjAHgQ2yN6jWXTIab8RhEaUe6BRcEXAI/HF0GEfzA==
   dependencies:
     "@svgdotjs/svg.js" "^3.0.1"
     "@svgdotjs/svg.topath.js" "^2.0.3"
@@ -740,6 +740,7 @@
     react "^16.8"
     react-dom "^16.8"
     react-loading "^2.0"
+    vivus "^0.4.4"
     webpack "^4.35.0"
 
 "@svgdotjs/svg.js@^3.0.1", "@svgdotjs/svg.js@^3.0.10":
@@ -5284,6 +5285,11 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
+
+vivus@^0.4.4:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/vivus/-/vivus-0.4.4.tgz#34363eb833d5f6fe0b63a92cfccff14ad099ba44"
+  integrity sha1-NDY+uDPV9v4LY6ks/M/xStCZukQ=
 
 vm-browserify@^1.0.1:
   version "1.1.0"
