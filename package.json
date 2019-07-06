@@ -26,7 +26,6 @@
     "graphql": "^14.0",
     "graphql-tag": "^2.10",
     "helmet": "^3.18.0",
-    "heroku-ssl-redirect": "^0.0.4",
     "isomorphic-unfetch": "^3.0",
     "jwt-decode": "^2.2",
     "next": "^8.1",
