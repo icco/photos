@@ -11,7 +11,11 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = express();
   server.use(helmet());
-  server.use(sslRedirect());
+  server.use(function(req, res, next) {
+    if (req.path != "/healthz") {
+      sslRedirect(req, res, next);
+    }
+  });
 
   server.get("*", (req, res) => {
     return handle(req, res);
