@@ -14,6 +14,8 @@ app.prepare().then(() => {
   server.use(function(req, res, next) {
     if (req.path != "/healthz") {
       sslRedirect(req, res, next);
+    } else {
+      next();
     }
   });
 
