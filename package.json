@@ -28,14 +28,14 @@
     "helmet": "^3.18.0",
     "isomorphic-unfetch": "^3.0",
     "jwt-decode": "^2.2",
-    "next": "^8.1",
+    "next": "^10.0.6",
     "pino": "^5.12",
     "pino-stackdriver-serializers": "https://github.com/icco/pino-stackdriver-serializers",
     "prop-types": "^15.6",
     "react": "^16.7",
     "react-apollo": "^2.1",
     "react-dom": "^16.7",
-    "webpack": "^4.4"
+    "webpack": "^5.0.0"
   },
   "prettier": {
     "trailingComma": "es5"
