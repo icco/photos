@@ -29,7 +29,7 @@
     "isomorphic-unfetch": "^3.0",
     "jwt-decode": "^2.2",
     "next": "^8.1",
-    "pino": "^5.12",
+    "pino": "^6.2.0",
     "pino-stackdriver-serializers": "https://github.com/icco/pino-stackdriver-serializers",
     "prop-types": "^15.6",
     "react": "^16.7",
