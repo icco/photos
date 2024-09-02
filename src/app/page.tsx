@@ -17,9 +17,12 @@ export default function UploadForm() {
       console.error("No files selected");
       return;
     }
-    for (const file of files) {
-      formData.append("photo", file);
+
+    if (files.length === 0) {
+      console.error("No files selected");
+      return;
     }
+    formData.append("photo", files[0]);
 
     const response = await fetch("/api/upload", {
       method: "POST",
