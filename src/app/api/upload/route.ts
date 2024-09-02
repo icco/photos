@@ -15,7 +15,7 @@ export const POST = async (req: Request, res: Response) => {
     throw new Error("Audio file not found");
    }
  
-   const filePath = `/${DateTime.now().Year}/${randomUUID()}`
+   const filePath = `/${DateTime.now().year}/${randomUUID()}`
  
    const storage = new Storage({
     projectId: `${GCP_PROJECT_ID}`,
