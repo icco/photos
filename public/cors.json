@@ -1,0 +1,15 @@
+[
+  {
+    "origin": [
+      "http://localhost:8080",
+      "https://photos.natwelch.com/"
+    ],
+    "method": [
+      "POST"
+    ],
+    "responseHeader": [
+      "Content-Type"
+    ],
+    "maxAgeSeconds": 3600
+  }
+]
