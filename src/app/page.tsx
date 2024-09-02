@@ -2,21 +2,20 @@
 
 import { useState } from "react";
 
-export default function AudioRecorder() {
-  const [audioBlob, setAudioBlob] = useState<Blob | null>(null);
-  // ...app code omitted
+export default function Home() {
+  const [photoBlob, setPhotoBlob] = useState<Blob | null>(null);
 
-  const uploadAudio = async () => {
-    if (!audioBlob) {
-      throw new Error("No audio to upload");
+  const uploadphoto = async () => {
+    if (!photoBlob) {
+      throw new Error("No photo to upload");
     }
 
     // Prepare FormData
     let formData = new FormData();
     const timestamp = Date.now();
 
-    // Append the audio blob to the FormData object. You might want to give it a filename.
-    formData.append("audio", audioBlob, `${timestamp}.webm`);
+    // Append the photo blob to the FormData object. You might want to give it a filename.
+    formData.append("photo", photoBlob, `${timestamp}.webm`);
 
     // Setup the fetch request options
     const requestOptions: RequestInit = {
@@ -31,15 +30,15 @@ export default function AudioRecorder() {
       const data = await response.json();
       console.log("Upload successful:", data);
     } catch (error) {
-      console.error("Error uploading audio:", error);
+      console.error("Error uploading photo:", error);
     }
   };
 
   return (
-    <div className="audio-container">
+    <div className="photo-container">
       <form id="uploadForm">
         <input type="file" id="fileInput" multiple />
-        <button type="button" onClick={uploadAudio}>
+        <button type="button" onClick={uploadphoto}>
           Upload
         </button>
       </form>
