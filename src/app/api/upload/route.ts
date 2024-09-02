@@ -11,10 +11,6 @@ export const POST = async (req: Request, res: Response) => {
    const data = await req.formData();
    const file = data.get("photo") as File;
  
-   if (!file || typeof file === "string") {
-    throw new Error("Audio file not found");
-   }
- 
    const filePath = `/${DateTime.now().year}/${randomUUID()}`
  
    const storage = new Storage({

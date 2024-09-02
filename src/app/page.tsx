@@ -1,4 +1,5 @@
 "use client";
+
 import { useRef } from "react";
 
 export default function UploadForm() {
@@ -10,7 +11,7 @@ export default function UploadForm() {
     evt.preventDefault();
 
     const formData = new FormData();
-    formData.append("file", fileInput?.current?.files?.[0]!);
+    formData.append("photo", fileInput?.current?.files?.[0]!);
 
     const response = await fetch("/api/upload", {
       method: "POST",
