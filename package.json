@@ -31,7 +31,7 @@
     "next": "^8.1",
     "pino": "^5.12",
     "pino-stackdriver-serializers": "https://github.com/icco/pino-stackdriver-serializers",
-    "prop-types": "^15.6",
+    "prop-types": "^15.8",
     "react": "^16.7",
     "react-apollo": "^2.1",
     "react-dom": "^16.7",
