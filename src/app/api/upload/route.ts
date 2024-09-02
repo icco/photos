@@ -1,7 +1,10 @@
+"use server";
+
 import { Storage } from "@google-cloud/storage";
 import { randomUUID } from "crypto";
 import { NextResponse } from "next/server";
 import { DateTime } from "luxon";
+import path from "path";
 
 const GCP_PROJECT_ID = "icco-cloud";
 const GCP_BUCKET_NAME = "icco-cloud";
@@ -10,8 +13,9 @@ export const POST = async (req: Request, res: Response) => {
   try {
    const data = await req.formData();
    const file = data.get("photo") as File;
+   const ext = path.extname(file.name).toLowerCase();
  
-   const filePath = `/${DateTime.now().year}/${randomUUID()}`
+   const filePath = `/${DateTime.now().year}/${randomUUID()}.${ext}`
  
    const storage = new Storage({
     projectId: `${GCP_PROJECT_ID}`,
@@ -20,8 +24,8 @@ export const POST = async (req: Request, res: Response) => {
  
    const bytes = await file.arrayBuffer();
    const buffer = Buffer.from(bytes);
+   console.log("uploading file: %s (original name: %s)", filePath, file.name);
  
-   // Wrap the upload logic in a promise
    await new Promise((resolve, reject) => {
     const blob = bucket.file(filePath);
     const blobStream = blob.createWriteStream({
@@ -29,7 +33,10 @@ export const POST = async (req: Request, res: Response) => {
     });
  
     blobStream
-     .on("error", (err) => reject(err))
+     .on("error", (err) => {
+      console.error(err);
+      reject(err)
+    })
      .on("finish", () => resolve(true));
  
     blobStream.end(buffer);
