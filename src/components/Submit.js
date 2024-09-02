@@ -1,14 +1,7 @@
 import React from "react";
 import { withRouter } from "next/router";
-import Link from "next/link";
-import { ErrorMessage, Loading } from "@icco/react-common";
+import { Image } from "next/image";
 
-import { getToken } from "../lib/auth.js";
-
-const baseUrl = process.env.GRAPHQL_ORIGIN.substring(
-  0,
-  process.env.GRAPHQL_ORIGIN.lastIndexOf("/")
-);
 
 class Submit extends React.Component {
   constructor(props) {
@@ -68,7 +61,7 @@ class Submit extends React.Component {
               [![photo]({fileUrl}&w=300)]({fileUrl})
             </code>
           </div>
-          <img className="mw-100" src={fileUrl} />
+          <Image className="" alt="file preview" src={fileUrl} />
         </>
       );
     }
