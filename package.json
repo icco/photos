@@ -15,7 +15,7 @@
     "@babel/core": "^7.4.5",
     "@icco/react-common": "2019.7.21-2",
     "@zeit/next-css": "^1.0",
-    "apollo-cache-inmemory": "^1.4",
+    "apollo-cache-inmemory": "^1.6",
     "apollo-client": "^2.4",
     "apollo-link-context": "^1.0",
     "apollo-link-error": "^1.1",
