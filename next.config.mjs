@@ -1,7 +1,7 @@
 // @ts-check
 
-/* eslint-disable @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports */
-const { createSecureHeaders } = require("next-secure-headers");
+const { createSecureHeaders } = require('next-secure-headers');
+
 
 const port = process.env.PORT || "8080";
 
