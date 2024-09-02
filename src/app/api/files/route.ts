@@ -3,8 +3,9 @@ import { SignedPostPolicyV4Output } from "@google-cloud/storage";
 import { Storage } from "@google-cloud/storage";
 
 export default async function POST(
-  req: Request,
+  req: NextApiRequest,
 ) {
+  const { query } = req;
   const storage = new Storage({
     projectId: process.env.PROJECT_ID,
     credentials: {
@@ -19,5 +20,8 @@ export default async function POST(
     fields: { "x-goog-meta-source": "photos" },
   };
   const [response] = await file.generateSignedPostPolicyV4(options);
-  res.status(200).json(response);
+
+  return new Response(JSON.stringify(response), {
+    status: 200,
+  });
 }
