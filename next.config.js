@@ -62,45 +62,6 @@ const nextConfig = {
       {
         source: "/(.*)",
         headers: createSecureHeaders({
-          contentSecurityPolicy: {
-            directives: {
-              // default-src 'none'
-              defaultSrc: ["'none'"],
-              // connect-src https://graphql.natwelch.com/graphql
-              connectSrc: [
-                "https://*.natwelch.com",
-              ],
-              // font-src 'self' https://fonts.gstatic.com
-              fontSrc: ["'self'", "https://fonts.gstatic.com"],
-              // img-src 'self' data: https://icco.imgix.net https://storage.googleapis.com
-              imgSrc: [
-                "'self'",
-                "data:",
-                "https://icco.imgix.net",
-                "https://storage.googleapis.com",
-                "https://*.natwelch.com",
-              ],
-              // script-src 'self' 'unsafe-inline'
-              scriptSrc: [
-                "'self'",
-                "'unsafe-inline'",
-                "'unsafe-eval'",
-                "blob:",
-                "https://*.natwelch.com",
-              ],
-              // style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/
-              styleSrc: [
-                "'self'",
-                "'unsafe-inline'",
-                "https://fonts.googleapis.com/",
-              ],
-              objectSrc: ["'none'"],
-              // https://developers.google.com/web/updates/2018/09/reportingapi#csp
-              reportURI: "https://reportd.natwelch.com/report/natwelch",
-              reportTo: "default",
-            },
-            reportOnly: true,
-          },
           referrerPolicy: "strict-origin-when-cross-origin",
           expectCT: true,
         }),
@@ -108,7 +69,6 @@ const nextConfig = {
     ];
   },
   experimental: {
-    mdxRs: true,
   },
 };
 
