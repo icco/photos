@@ -19,6 +19,11 @@ const nextConfig = {
   eslint: {
     dirs: ["src", "."],
   },
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
   async redirects() {
     return [
       {
