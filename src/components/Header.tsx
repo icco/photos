@@ -1,7 +1,7 @@
-import Link from "next/link"
+import Link from "next/link";
 
-import Logo from "./Logo"
-import ThemeToggle from "./ThemeToggle"
+import Logo from "./Logo";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
   return (
@@ -20,5 +20,5 @@ export default function Header() {
         </Link>
       </div>
     </nav>
-  )
+  );
 }
