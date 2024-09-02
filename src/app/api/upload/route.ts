@@ -10,7 +10,7 @@ import { NextResponse } from "next/server";
 const GCP_PROJECT_ID = "icco-cloud";
 const GCP_BUCKET_NAME = "icco-cloud";
 
-export const POST = async (req: Request, res: Response) => {
+export const POST = async (req: Request) => {
   try {
     const data = await req.formData();
     const file = data.get("photo") as File;

@@ -11,7 +11,15 @@ export default function UploadForm() {
     evt.preventDefault();
 
     const formData = new FormData();
-    formData.append("photo", fileInput?.current?.files?.[0]!);
+    const files = fileInput.current?.files;
+
+    if (!files) {
+      console.error("No files selected");
+      return;
+    }
+    for (const file of files) {
+      formData.append("photo", file);
+    }
 
     const response = await fetch("/api/upload", {
       method: "POST",
