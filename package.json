@@ -34,7 +34,7 @@
     "prop-types": "^15.6",
     "react": "^16.7",
     "react-apollo": "^2.1",
-    "react-dom": "^16.7",
+    "react-dom": "^16.13",
     "webpack": "^4.4"
   },
   "prettier": {
