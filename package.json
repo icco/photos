@@ -32,7 +32,7 @@
     "pino": "^5.12",
     "pino-stackdriver-serializers": "https://github.com/icco/pino-stackdriver-serializers",
     "prop-types": "^15.6",
-    "react": "^16.7",
+    "react": "^16.14",
     "react-apollo": "^2.1",
     "react-dom": "^16.7",
     "webpack": "^4.4"
