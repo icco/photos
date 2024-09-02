@@ -64,7 +64,9 @@ class Submit extends React.Component {
             Last uploaded file: <a href={fileUrl}>{fileUrl}</a>
           </div>
           <div className="mv4">
-             <code>[![photo]({fileUrl}&w=300)]({fileUrl})</code>
+            <code>
+              [![photo]({fileUrl}&w=300)]({fileUrl})
+            </code>
           </div>
           <img className="mw-100" src={fileUrl} />
         </>
