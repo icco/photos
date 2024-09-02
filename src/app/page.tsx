@@ -1,47 +1,34 @@
-"use client"
+"use client";
+import { useRef } from "react";
 
-import { useState } from "react";
+export default function UploadForm() {
+  const fileInput = useRef<HTMLInputElement>(null);
 
-export default function Home() {
-  const [photoBlob, setPhotoBlob] = useState<Blob | null>(null);
+  async function uploadFile(
+    evt: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) {
+    evt.preventDefault();
 
-  const uploadphoto = async () => {
-    if (!photoBlob) {
-      throw new Error("No photo to upload");
-    }
+    const formData = new FormData();
+    formData.append("file", fileInput?.current?.files?.[0]!);
 
-    // Prepare FormData
-    let formData = new FormData();
-    const timestamp = Date.now();
-
-    // Append the photo blob to the FormData object. You might want to give it a filename.
-    formData.append("photo", photoBlob, `${timestamp}.webm`);
-
-    // Setup the fetch request options
-    const requestOptions: RequestInit = {
+    const response = await fetch("/api/upload", {
       method: "POST",
       body: formData,
-    };
-
-    // Send the request to your API endpoint
-    try {
-      const response = await fetch("/api/upload", requestOptions);
-      if (!response.ok) throw new Error("Failed to upload");
-      const data = await response.json();
-      console.log("Upload successful:", data);
-    } catch (error) {
-      console.error("Error uploading photo:", error);
-    }
-  };
+    });
+    const result = await response.json();
+    console.log(result);
+  }
 
   return (
-    <div className="photo-container">
-      <form id="uploadForm">
-        <input type="file" id="fileInput" multiple />
-        <button type="button" onClick={uploadphoto}>
-          Upload
-        </button>
-      </form>
-    </div>
+    <form className="flex flex-col gap-4">
+      <label>
+        <span>Upload a file</span>
+        <input type="file" name="file" ref={fileInput} />
+      </label>
+      <button type="submit" onClick={uploadFile}>
+        Submit
+      </button>
+    </form>
   );
 }
