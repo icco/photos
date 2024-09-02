@@ -1,27 +1,46 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-import { SignedPostPolicyV4Output } from "@google-cloud/storage";
 import { Storage } from "@google-cloud/storage";
+import { randomUUID } from "crypto";
+import { NextResponse } from "next/server";
+import { DateTime } from "luxon";
 
-export default async function POST(
-  req: NextApiRequest,
-) {
-  const { query } = req;
-  const storage = new Storage({
-    projectId: process.env.PROJECT_ID,
-    credentials: {
-      client_email: process.env.CLIENT_EMAIL,
-      private_key: process.env.PRIVATE_KEY,
-    },
-  });
-  const bucket = storage.bucket("icco-cloud");
-  const file = bucket.file(query.file as string);
-  const options = {
-    expires: Date.now() + 5 * 60 * 1000, //  5 minutes,
-    fields: { "x-goog-meta-source": "photos" },
-  };
-  const [response] = await file.generateSignedPostPolicyV4(options);
+const GCP_PROJECT_ID = "icco-cloud";
+const GCP_BUCKET_NAME = "icco-cloud";
 
-  return new Response(JSON.stringify(response), {
-    status: 200,
-  });
-}
+export const POST = async (req: Request, res: Response) => {
+  try {
+   const data = await req.formData();
+   const file = data.get("photo") as File;
+ 
+   if (!file || typeof file === "string") {
+    throw new Error("Audio file not found");
+   }
+ 
+   const filePath = `/${DateTime.now().Year}/${randomUUID()}`
+ 
+   const storage = new Storage({
+    projectId: `${GCP_PROJECT_ID}`,
+   });
+   const bucket = storage.bucket(`${GCP_BUCKET_NAME}`);
+ 
+   const bytes = await file.arrayBuffer();
+   const buffer = Buffer.from(bytes);
+ 
+   // Wrap the upload logic in a promise
+   await new Promise((resolve, reject) => {
+    const blob = bucket.file(filePath);
+    const blobStream = blob.createWriteStream({
+     resumable: false,
+    });
+ 
+    blobStream
+     .on("error", (err) => reject(err))
+     .on("finish", () => resolve(true));
+ 
+    blobStream.end(buffer);
+   });
+ 
+   return new NextResponse(JSON.stringify({ success: true }));
+  } catch (error) {
+   return new NextResponse(JSON.stringify(error), { status: 500 });
+  }
+ };
