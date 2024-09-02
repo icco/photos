@@ -4,7 +4,7 @@ import type { Metadata, Viewport } from "next"
 import { Roboto, Roboto_Mono, Roboto_Slab } from "next/font/google"
 
 import Footer from "@/components/Footer"
-import { Header } from "@/components/Header"
+import Header from "@/components/Header"
 import { ThemeProvider } from "@/components/ThemeProvider"
 
 const roboto = Roboto({

@@ -3,7 +3,6 @@
 import { Storage } from "@google-cloud/storage";
 import { randomUUID } from "crypto";
 import { NextResponse } from "next/server";
-import { DateTime } from "luxon";
 import path from "path";
 
 const GCP_PROJECT_ID = "icco-cloud";
@@ -15,7 +14,7 @@ export const POST = async (req: Request, res: Response) => {
    const file = data.get("photo") as File;
    const ext = path.extname(file.name).toLowerCase();
  
-   const filePath = `/${DateTime.now().year}/${randomUUID()}.${ext}`
+   const filePath = `/${format(new Date(), "yyyy")}/${randomUUID()}.${ext}`
  
    const storage = new Storage({
     projectId: `${GCP_PROJECT_ID}`,
