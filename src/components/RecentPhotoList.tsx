@@ -28,7 +28,7 @@ export function RecentPhotoList({ reload }: Record<string, boolean>): JSX.Elemen
   return (
     <div className="columns-2 gap-2">
       {data.map((photo) => (
-        <a href={photo}><Image src={`${photo}?w=${w}&h=${h}`} width={200} height={150} alt="An uploaded photo" className="w-full my-2"></Image></a>
+        <a href={photo}><Image src={`${photo}?w=${w}&h=${h}`} width={w} height={h} alt="An uploaded photo" className="w-full my-2"></Image></a>
       ))}
     </div>
   );
