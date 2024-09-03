@@ -1,11 +1,11 @@
 "use server";
 
-import { randomUUID } from "crypto";
 import path from "path";
 
 import { Storage } from "@google-cloud/storage";
 import { format } from "date-fns";
 import { NextResponse } from "next/server";
+import { getTsid } from "tsid-ts";
 
 const GCP_PROJECT_ID = "icco-cloud";
 const GCP_BUCKET_NAME = "icco-cloud";
@@ -16,7 +16,9 @@ export const POST = async (req: Request) => {
     const file = data.get("photo") as File;
     const ext = path.extname(file.name).toLowerCase();
 
-    const filePath = `photos/${format(new Date(), "yyyy")}/${randomUUID()}${ext}`;
+    const id = getTsid();
+
+    const filePath = `photos/${format(new Date(), "yyyy")}/${id}${ext}`;
 
     const storage = new Storage({
       projectId: `${GCP_PROJECT_ID}`,

@@ -19,6 +19,7 @@
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
+    "tsid-ts": "^0.0.9",
     "vivus": "^0.4.6"
   },
   "devDependencies": {
