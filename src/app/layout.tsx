@@ -49,7 +49,7 @@ export default function RootLayout({
       <body>
         <ThemeProvider defaultTheme="system" enableSystem>
           <Header />
-          <main>{children}</main>
+          <main className="px-4 mx-auto max-w-xl py-8">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

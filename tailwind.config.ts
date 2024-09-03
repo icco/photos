@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 
+/* eslint-disable @typescript-eslint/no-require-imports */
 const config: Config = {
   future: {},
   darkMode: "class",
@@ -8,8 +9,13 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("daisyui"),
+    require("@tailwindcss/forms")({
+      strategy: "class", // only generate classes
+    }),
+  ],
   daisyui: {
     themes: [
       {
