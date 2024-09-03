@@ -2,6 +2,8 @@
 
 import { useRef, useState } from "react";
 
+import { RecentPhotoList } from "@/components/RecentPhotoList";
+
 export default function UploadForm() {
   const fileInput = useRef<HTMLInputElement>(null);
   const [successModalOpen, setSuccessModalOpen] = useState(false);
@@ -122,6 +124,8 @@ export default function UploadForm() {
           </button>
         </div>
       </form>
+
+      <RecentPhotoList />
     </div>
   );
 }

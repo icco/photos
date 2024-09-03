@@ -16,7 +16,7 @@ export const POST = async (req: Request) => {
     const file = data.get("photo") as File;
     const ext = path.extname(file.name).toLowerCase();
 
-    const filePath = `/photos/${format(new Date(), "yyyy")}/${randomUUID()}${ext}`;
+    const filePath = `photos/${format(new Date(), "yyyy")}/${randomUUID()}${ext}`;
 
     const storage = new Storage({
       projectId: `${GCP_PROJECT_ID}`,
