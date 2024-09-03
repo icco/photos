@@ -37,6 +37,7 @@ export function RecentPhotoList({
             height={h}
             alt="An uploaded photo"
             className="w-full my-2"
+            unoptimized
           ></Image>
         </a>
       ))}
