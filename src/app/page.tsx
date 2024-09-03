@@ -18,7 +18,7 @@ export default function UploadForm() {
     return (
       <div
         role="alert"
-        className="alert alert-success max-w-sm my-4 flex justify-between"
+        className="alert alert-success w-full my-4 flex justify-between"
         onClick={close}
       >
         <svg
@@ -47,7 +47,7 @@ export default function UploadForm() {
     return (
       <div
         role="alert"
-        className="alert alert-error max-w-sm my-4 flex justify-between"
+        className="alert alert-error w-full my-4 flex justify-between"
         onClick={close}
       >
         <svg
