@@ -71,10 +71,10 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'icco.imgix.net',
-        port: '',
-        pathname: '/photos/**',
+        protocol: "https",
+        hostname: "icco.imgix.net",
+        port: "",
+        pathname: "/photos/**",
       },
     ],
   },

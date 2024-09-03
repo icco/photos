@@ -9,7 +9,6 @@ const GCP_BUCKET_NAME = "icco-cloud";
 
 export const GET = async (req: Request) => {
   try {
-
     const filePath = `photos/${format(new Date(), "yyyy")}/`;
 
     const storage = new Storage({
@@ -18,7 +17,9 @@ export const GET = async (req: Request) => {
     const bucket = storage.bucket(`${GCP_BUCKET_NAME}`);
 
     const files = await bucket.getFiles({ prefix: filePath });
-    const photos = files[0].map((file) => `https://icco.imgix.net/${file.name}`);
+    const photos = files[0].map(
+      (file) => `https://icco.imgix.net/${file.name}`
+    );
 
     return new NextResponse(JSON.stringify({ photos }));
   } catch (error) {

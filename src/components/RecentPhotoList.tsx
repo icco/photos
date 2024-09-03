@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
-export function RecentPhotoList({ reload }: Record<string, boolean>): JSX.Element {
+export function RecentPhotoList({
+  reload,
+}: Record<string, boolean>): JSX.Element {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -28,7 +30,15 @@ export function RecentPhotoList({ reload }: Record<string, boolean>): JSX.Elemen
   return (
     <div className="columns-2 gap-2">
       {data.map((photo) => (
-        <a href={photo}><Image src={`${photo}?w=${w}&h=${h}`} width={w} height={h} alt="An uploaded photo" className="w-full my-2"></Image></a>
+        <a href={photo}>
+          <Image
+            src={`${photo}?w=${w}&h=${h}`}
+            width={w}
+            height={h}
+            alt="An uploaded photo"
+            className="w-full my-2"
+          ></Image>
+        </a>
       ))}
     </div>
   );
