@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-export function RecentPhotoList() {
+export function RecentPhotoList({ reload }: Record<string, boolean>): JSX.Element {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -12,7 +12,7 @@ export function RecentPhotoList() {
         setData(data.photos);
         setLoading(false);
       });
-  }, []);
+  }, [reload]);
 
   if (!data.length && loading) {
     return <div>Loading...</div>;
@@ -22,11 +22,14 @@ export function RecentPhotoList() {
     return <div>No photos found.</div>;
   }
 
+  const w = 200;
+  const h = 150;
+
   return (
-    <ul>
+    <div className="columns-2 gap-2">
       {data.map((photo) => (
-        <li key={photo}><a href={photo}><Image src={photo} width={50} height={50} alt="An uploaded photo"></Image></a></li>
+        <a href={photo}><Image src={`${photo}?w=${w}&h=${h}`} width={200} height={150} alt="An uploaded photo" className="w-full my-2"></Image></a>
       ))}
-    </ul>
+    </div>
   );
 }

@@ -3,11 +3,13 @@
 import { useRef, useState } from "react";
 
 import { RecentPhotoList } from "@/components/RecentPhotoList";
+import { set } from "date-fns";
 
 export default function UploadForm() {
   const fileInput = useRef<HTMLInputElement>(null);
   const [successModalOpen, setSuccessModalOpen] = useState(false);
   const [failModalOpen, setFailModalOpen] = useState(false);
+  const [reload, setReload] = useState(false);
 
   function SuccessModal(): JSX.Element {
     function close(): void {
@@ -95,6 +97,7 @@ export default function UploadForm() {
 
     if (response.ok) {
       setSuccessModalOpen(true);
+      setReload(!reload);
     } else {
       setFailModalOpen(true);
     }
@@ -125,7 +128,9 @@ export default function UploadForm() {
         </div>
       </form>
 
-      <RecentPhotoList />
+      <div className="my-4">
+        <RecentPhotoList reload={reload} />
+      </div>
     </div>
   );
 }
