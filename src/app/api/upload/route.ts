@@ -16,7 +16,7 @@ export const POST = async (req: Request) => {
     const file = data.get("photo") as File;
     const ext = path.extname(file.name).toLowerCase();
 
-    const id = getTsid();
+    const id = getTsid().toString();
 
     const filePath = `photos/${format(new Date(), "yyyy")}/${id}${ext}`;
 
