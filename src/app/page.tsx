@@ -1,6 +1,5 @@
 "use client";
 
-import { set } from "date-fns";
 import { useRef, useState } from "react";
 
 import { RecentPhotoList } from "@/components/RecentPhotoList";

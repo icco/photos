@@ -7,7 +7,7 @@ import { NextResponse } from "next/server";
 const GCP_PROJECT_ID = "icco-cloud";
 const GCP_BUCKET_NAME = "icco-cloud";
 
-export const GET = async (req: Request) => {
+export const GET = async () => {
   try {
     const filePath = `photos/${format(new Date(), "yyyy")}/`;
 

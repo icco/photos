@@ -30,7 +30,7 @@ export function RecentPhotoList({
   return (
     <div className="columns-2 gap-2">
       {data.map((photo) => (
-        <a href={photo}>
+        <a href={photo} key={photo}>
           <Image
             src={`${photo}?w=${w}&h=${h}`}
             width={w}
