@@ -9,7 +9,7 @@
     "lint": "next lint --fix"
   },
   "dependencies": {
-    "@google-cloud/storage": "^7.12.1",
+    "@google-cloud/storage": "^7.13.0",
     "@heroicons/react": "^2.1.5",
     "@tailwindcss/typography": "^0.5.15",
     "daisyui": "^4.7.3",
