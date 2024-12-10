@@ -18,6 +18,18 @@ export const POST = async (req: Request) => {
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
       const ext = path.extname(file.name).toLowerCase();
+      const allowedExtensions = [
+        ".jpg",
+        ".jpeg",
+        ".png",
+        ".gif",
+        ".webp",
+        ".svg",
+      ];
+      if (!allowedExtensions.includes(ext)) {
+        console.log(`Skipping file ${file.name} - not an allowed image type`);
+        continue;
+      }
 
       const id = getTsid().toString();
 
