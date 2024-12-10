@@ -16,7 +16,10 @@ export const GET = async () => {
     });
     const bucket = storage.bucket(`${GCP_BUCKET_NAME}`);
 
-    const files = await bucket.getFiles({ prefix: filePath });
+    const files = await bucket.getFiles({
+      autoPaginate: true,
+      prefix: filePath,
+    });
     const photos = files[0]
       .sort((a, b) => b.name.localeCompare(a.name))
       .map((file) => `https://icco.imgix.net/${file.name}`);
