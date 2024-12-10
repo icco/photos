@@ -13,37 +13,45 @@ const GCP_BUCKET_NAME = "icco-cloud";
 export const POST = async (req: Request) => {
   try {
     const data = await req.formData();
-    const file = data.get("photo") as File;
-    const ext = path.extname(file.name).toLowerCase();
+    const files = data.getAll("photo") as File[];
 
-    const id = getTsid().toString();
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      const ext = path.extname(file.name).toLowerCase();
 
-    const filePath = `photos/${format(new Date(), "yyyy")}/${id}${ext}`;
+      const id = getTsid().toString();
 
-    const storage = new Storage({
-      projectId: `${GCP_PROJECT_ID}`,
-    });
-    const bucket = storage.bucket(`${GCP_BUCKET_NAME}`);
+      const filePath = `photos/${format(new Date(), "yyyy")}/${id}${ext}`;
 
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-    console.log("uploading file: %s (original name: %s)", filePath, file.name);
-
-    await new Promise((resolve, reject) => {
-      const blob = bucket.file(filePath);
-      const blobStream = blob.createWriteStream({
-        resumable: false,
+      const storage = new Storage({
+        projectId: `${GCP_PROJECT_ID}`,
       });
+      const bucket = storage.bucket(`${GCP_BUCKET_NAME}`);
 
-      blobStream
-        .on("error", (err) => {
-          console.error(err);
-          reject(err);
-        })
-        .on("finish", () => resolve(true));
+      const bytes = await file.arrayBuffer();
+      const buffer = Buffer.from(bytes);
+      console.log(
+        "uploading file: %s (original name: %s)",
+        filePath,
+        file.name
+      );
 
-      blobStream.end(buffer);
-    });
+      await new Promise((resolve, reject) => {
+        const blob = bucket.file(filePath);
+        const blobStream = blob.createWriteStream({
+          resumable: false,
+        });
+
+        blobStream
+          .on("error", (err) => {
+            console.error(err);
+            reject(err);
+          })
+          .on("finish", () => resolve(true));
+
+        blobStream.end(buffer);
+      });
+    }
 
     return new NextResponse(JSON.stringify({ success: true }));
   } catch (error) {
