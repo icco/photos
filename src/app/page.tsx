@@ -87,7 +87,10 @@ export default function UploadForm() {
       setFailModalOpen(true);
       return;
     }
-    formData.append("photo", files[0]);
+
+    for (let i = 0; i < files.length; i++) {
+      formData.append("photo", files[i]);
+    }
 
     const response = await fetch("/api/upload", {
       method: "POST",
@@ -114,6 +117,7 @@ export default function UploadForm() {
           id="file"
           type="file"
           name="file"
+          multiple={true}
           ref={fileInput}
         />
         <div className="flex-row">
