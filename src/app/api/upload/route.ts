@@ -19,12 +19,14 @@ export const POST = async (req: Request) => {
       const file = files[i];
       const ext = path.extname(file.name).toLowerCase();
       const allowedExtensions = [
-        ".jpg",
-        ".jpeg",
-        ".png",
         ".gif",
-        ".webp",
+        ".heic",
+        ".heif",
+        ".jpeg",
+        ".jpg",
+        ".png",
         ".svg",
+        ".webp",
       ];
       if (!allowedExtensions.includes(ext)) {
         console.log(`Skipping file ${file.name} - not an allowed image type`);
