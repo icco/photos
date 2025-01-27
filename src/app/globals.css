@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+
 @plugin "daisyui" {
   themes: nord --default, dark --prefersdark;
   root: ":root";
@@ -8,31 +9,37 @@
   logs: true;
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @plugin "daisyui/theme" {
   name: "dark";
-  default: false; /* set as default */
-  prefersdark: true; /* set as default dark mode (prefers-color-scheme:dark) */
-  color-scheme: dark; /* color of browser-provided UI */
+  default: false;
+  /* set as default */
+  prefersdark: true;
+  /* set as default dark mode (prefers-color-scheme:dark) */
+  color-scheme: dark;
+  /* color of browser-provided UI */
 
 
-  --color-primary: "#3B4252";	
-  --color-secondary: "#434C5E";	
-  --color-accent: "#81A1C1";	
-  --color-neutral: "#4C566A";	
-  --color-base-content: "#eceff4";	
-  --color-base-100: "#2E3440";	
-  --color-info: "#5E81AC";	
-  --color-success: "#A3BE8C";	
-  --color-warning: "#D08770";	
-  --color-error: "#BF616A";	
+  --color-primary: "#3B4252";
+  --color-secondary: "#434C5E";
+  --color-accent: "#81A1C1";
+  --color-neutral: "#4C566A";
+  --color-base-content: "#eceff4";
+  --color-base-100: "#2E3440";
+  --color-info: "#5E81AC";
+  --color-success: "#A3BE8C";
+  --color-warning: "#D08770";
+  --color-error: "#BF616A";
 
-  --rounded-box: 0.4rem;	
-  --rounded-btn: 0.2rem;	
-  --rounded-badge: 0.4rem;	
-  --tab-radius: 0.2rem;	
+  --rounded-box: 0.4rem;
+  --rounded-btn: 0.2rem;
+  --rounded-badge: 0.4rem;
+  --tab-radius: 0.2rem;
 }
 
-@config '../../tailwind.config.ts';
+@plugin '@tailwindcss/typography';
+@plugin '@tailwindcss/forms';
 
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
@@ -43,6 +50,7 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
+
   *,
   ::after,
   ::before,
@@ -127,12 +135,10 @@ article a {
 a.blue:link,
 a.blue:visited,
 article a:link,
-article a:visited {
-}
+article a:visited {}
 
 a.blue:hover,
-article a:hover {
-}
+article a:hover {}
 
 a.blue:active,
 article a:active {

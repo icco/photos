@@ -25,9 +25,9 @@ function ThemeToggle() {
           value={resolvedTheme}
         />
 
-        <SunIcon className="swap-off h-10 w-10 fill-current" />
+        <SunIcon className="swap-off h-4 w-4 fill-current" />
 
-        <MoonIcon className="swap-on h-10 w-10 fill-current" />
+        <MoonIcon className="swap-on h-4 w-4 fill-current" />
       </label>
     </>
   );
