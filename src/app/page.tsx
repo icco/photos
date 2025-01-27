@@ -10,7 +10,7 @@ export default function UploadForm() {
   const [failModalOpen, setFailModalOpen] = useState(false);
   const [reload, setReload] = useState(false);
 
-  function SuccessModal(): JSX.Element {
+  function SuccessModal(): React.JSX.Element {
     function close(): void {
       setSuccessModalOpen(false);
     }
@@ -39,7 +39,7 @@ export default function UploadForm() {
     );
   }
 
-  function FailModal(): JSX.Element {
+  function FailModal(): React.JSX.Element {
     function close(): void {
       setFailModalOpen(false);
     }

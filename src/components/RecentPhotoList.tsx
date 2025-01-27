@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 export function RecentPhotoList({
   reload,
-}: Record<string, boolean>): JSX.Element {
+}: Record<string, boolean>): React.JSX.Element {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
