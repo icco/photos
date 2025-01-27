@@ -1,5 +1,10 @@
 @import 'tailwindcss';
 
+@plugin '@tailwindcss/typography';
+@plugin '@tailwindcss/forms';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 @plugin "daisyui" {
   themes: nord --default, dark --prefersdark;
   root: ":root";
@@ -8,8 +13,6 @@
   prefix: ;
   logs: true;
 }
-
-@custom-variant dark (&:where(.dark, .dark *));
 
 @plugin "daisyui/theme" {
   name: "dark";
@@ -37,9 +40,6 @@
   --rounded-badge: 0.4rem;
   --tab-radius: 0.2rem;
 }
-
-@plugin '@tailwindcss/typography';
-@plugin '@tailwindcss/forms';
 
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
