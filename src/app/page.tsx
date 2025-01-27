@@ -113,7 +113,7 @@ export default function UploadForm() {
 
       <form className="flex flex-col gap-4">
         <input
-          className="file-input file-input-bordered w-full text-gray-900 border border-gray-300 rounded-lg bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+          className="file-input file-input-bordered w-full text-gray-900 border border-gray-300 rounded-lg bg-gray-50 dark:text-gray-400 focus:outline-hidden dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
           id="file"
           type="file"
           name="file"
