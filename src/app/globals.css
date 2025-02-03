@@ -53,16 +53,19 @@
   default: false;
   color-scheme: dark;
 
-  --color-primary: "#3B4252";
-  --color-secondary: "#434C5E";
-  --color-accent: "#81A1C1";
-  --color-neutral: "#4C566A";
-  --color-base-content: "#eceff4";
-  --color-base-100: "#2E3440";
-  --color-info: "#5E81AC";
-  --color-success: "#A3BE8C";
-  --color-warning: "#D08770";
-  --color-error: "#BF616A";
+  --color-primary: oklch(37.92% 0.029 266.47);
+  --color-secondary: oklch(41.57% 0.0324 264.13);
+  --color-accent: oklch(69.65% 0.0591 248.69);
+  --color-neutral: oklch(45.23% 0.0352 264.13);
+  --color-base-content: oklch(95.13% 0.0074 260.73);
+  --color-base-100: oklch(32.44% 0.0229 264.18);
+  --color-info: oklch(59.44% 0.0772 254.03);
+  --color-success: oklch(76.83% 0.0749 131.06);
+  --color-success-content: oklch(76.83% 0.0749 131.06);
+  --color-warning: oklch(69.29% 0.0963 38.24);
+  --color-warning-content: oklch(69.29% 0.0963 38.24);
+  --color-error: oklch(60.61% 0.1206 15.34);
+  --color-error-content: oklch(60.61% 0.1206 15.34);
 
   --radius-selector: 1rem;
   --radius-field: 0.25rem;
