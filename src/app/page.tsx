@@ -122,7 +122,7 @@ export default function UploadForm() {
         />
         <div className="flex-row">
           <button
-            className="btn btn-primary w-1/5 flex-1"
+            className="btn btn-primary w-1/5 p-2"
             type="submit"
             onClick={uploadFile}
           >
