@@ -11,8 +11,6 @@
   "dependencies": {
     "@google-cloud/storage": "^7.13.0",
     "@heroicons/react": "^2.1.5",
-    "@tailwindcss/typography": "^0.5.15",
-    "daisyui": "^5.0.0-beta.2",
     "date-fns": "^4.1.0",
     "next": "^15.1.6",
     "next-secure-headers": "^2.2.0",
@@ -23,13 +21,14 @@
     "vivus": "^0.4.6"
   },
   "devDependencies": {
-    "@tailwindcss/forms": "^0.5.8",
     "@tailwindcss/postcss": "^4.0.0",
+    "@tailwindcss/typography": "^0.5.15",
     "@types/node": "^22",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@typescript-eslint/eslint-plugin": "^8.7.0",
     "@typescript-eslint/parser": "^8.19.0",
+    "daisyui": "^5.0.0-beta.2",
     "dlx": "^0.2.1",
     "eslint": "^8.0.0",
     "eslint-config-next": "^15.1.6",
