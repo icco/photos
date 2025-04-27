@@ -27,6 +27,9 @@ export const GET = async () => {
     return new NextResponse(JSON.stringify({ photos }));
   } catch (error) {
     console.error("An error occurred:", error); // Log the full error details on the server
-    return new NextResponse(JSON.stringify({ message: "An unexpected error occurred" }), { status: 500 });
+    return new NextResponse(
+      JSON.stringify({ message: "An unexpected error occurred" }),
+      { status: 500 }
+    );
   }
 };
