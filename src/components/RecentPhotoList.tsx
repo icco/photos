@@ -21,6 +21,14 @@ export function RecentPhotoList({
           setLoading(false);
           return;
         }
+
+        if (!data.photos || !Array.isArray(data.photos)) {
+          console.error("Invalid response format:", data);
+          setError("Received invalid response format from server");
+          setLoading(false);
+          return;
+        }
+
         setData(data.photos);
         setLoading(false);
       })
