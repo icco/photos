@@ -70,6 +70,9 @@ export const POST = async (req: Request) => {
     return new NextResponse(JSON.stringify({ success: true }));
   } catch (error) {
     console.error("An error occurred:", error); // Log the error details on the server
-    return new NextResponse(JSON.stringify({ message: "An unexpected error occurred" }), { status: 500 });
+    return new NextResponse(
+      JSON.stringify({ message: "An unexpected error occurred" }),
+      { status: 500 }
+    );
   }
 };
