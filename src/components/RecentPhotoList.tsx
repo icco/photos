@@ -6,18 +6,37 @@ export function RecentPhotoList({
 }: Record<string, boolean>): React.JSX.Element {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     fetch("/api/list")
       .then((res) => res.json())
       .then((data) => {
+        if (data.code) {
+          // Handle error response
+          const errorMessage =
+            data.message || "An error occurred while fetching photos";
+          console.error("API Error:", data);
+          setError(errorMessage);
+          setLoading(false);
+          return;
+        }
         setData(data.photos);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Failed to fetch photos:", err);
+        setError("Failed to load photos. Please try again later.");
         setLoading(false);
       });
   }, [reload]);
 
-  if (!data.length && loading) {
+  if (loading) {
     return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="text-red-500 p-4">Error: {error}</div>;
   }
 
   if (!data.length) {
