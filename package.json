@@ -27,7 +27,7 @@
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@typescript-eslint/eslint-plugin": "^8.7.0",
-    "@typescript-eslint/parser": "^8.19.0",
+    "@typescript-eslint/parser": "^8.35.1",
     "daisyui": "^5.0.0-beta.2",
     "dlx": "^0.2.1",
     "eslint": "^9.25.1",
