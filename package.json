@@ -30,7 +30,7 @@
     "@typescript-eslint/parser": "^8.19.0",
     "daisyui": "^5.0.0-beta.2",
     "dlx": "^0.2.1",
-    "eslint": "^9.25.1",
+    "eslint": "^9.30.1",
     "eslint-config-next": "^15.1.6",
     "eslint-config-prettier": "^10.0.0",
     "eslint-plugin-mdx": "^3.0.0",
