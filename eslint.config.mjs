@@ -6,6 +6,7 @@ import simpleImportSort from "eslint-plugin-simple-import-sort";
 const eslintConfig = [
   ...nextConfig,
   {
+    files: ["**/*.{js,jsx,ts,tsx,mjs,cjs}"],
     languageOptions: {
       parser: tsParser,
       parserOptions: {
