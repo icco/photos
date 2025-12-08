@@ -6,11 +6,10 @@ import { useTheme } from "next-themes";
 function ThemeToggle() {
   const { resolvedTheme, theme, setTheme } = useTheme();
 
-  let isDark = resolvedTheme === "dark";
+  const isDark = resolvedTheme === "dark";
 
   const onChange = () => {
     setTheme(isDark ? "light" : "dark");
-    isDark = theme === "dark";
   };
 
   return (
