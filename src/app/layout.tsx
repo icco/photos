@@ -1,12 +1,12 @@
 import "./globals.css";
 
+import { ThemeProvider } from "@icco/react-common/ThemeProvider";
+import { WebVitals } from "@icco/react-common/WebVitals";
 import type { Metadata, Viewport } from "next";
 import { Roboto, Roboto_Mono, Roboto_Slab } from "next/font/google";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import { WebVitals } from "@/components/WebVitals";
 
 const roboto = Roboto({
   weight: "400",
@@ -47,10 +47,10 @@ export default function RootLayout({
       className={`${roboto.variable} ${robotoSlab.variable} ${robotoMono.variable}`}
       suppressHydrationWarning
     >
-      <WebVitals />
       <body>
         <ThemeProvider defaultTheme="system" enableSystem>
           <Header />
+          <WebVitals analyticsPath="/analytics/photos" />
           <main className="px-4 mx-auto max-w-xl py-8">{children}</main>
           <Footer />
         </ThemeProvider>

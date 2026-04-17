@@ -1,12 +1,24 @@
+import { fixupConfigRules } from "@eslint/compat";
 import tsParser from "@typescript-eslint/parser";
 import nextConfig from "eslint-config-next";
-import importPlugin from "eslint-plugin-import";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 
+// eslint-config-next bundles a custom "next" parser whose scopeManager
+// doesn't implement the addGlobals API added in eslint-scope v9 / ESLint 10.
+// Strip it out and let @typescript-eslint/parser (which supports ESLint 10)
+// handle all files instead.
+const patchedNextConfig = fixupConfigRules(nextConfig).map((config) => {
+  if (config.languageOptions?.parser?.meta?.name === "eslint-config-next/parser") {
+    const { parser: _parser, ...languageOptions } = config.languageOptions;
+    return { ...config, languageOptions };
+  }
+  return config;
+});
+
 const eslintConfig = [
-  ...nextConfig,
+  ...patchedNextConfig,
   {
-    files: ["**/*.{js,jsx,ts,tsx,mjs,cjs}"],
+    files: ["**/*.{js,jsx,ts,tsx}"],
     languageOptions: {
       parser: tsParser,
       parserOptions: {
@@ -16,7 +28,6 @@ const eslintConfig = [
       },
     },
     plugins: {
-      import: importPlugin,
       "simple-import-sort": simpleImportSort,
     },
     rules: {
@@ -35,7 +46,6 @@ const eslintConfig = [
             ["^@?\\w"],
             ["^"],
             ["^components(/.*|$)", "^lib(/.*|$)"],
-            ["contentlayer/generated"],
             ["^\\."],
           ],
         },
