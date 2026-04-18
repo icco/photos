@@ -1,7 +1,7 @@
 import { Footer as CommonFooter } from "@icco/react-common/Footer";
 
 const Footer = () => (
-  <CommonFooter startYear={2011} sourceRepo="https://github.com/icco/photos" />
+  <CommonFooter startYear={2011} sourceRepo="https://github.com/icco/photos" showRecurseRing={false} showXXIIVVRing={false} />
 );
 
 export default Footer;
