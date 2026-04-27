@@ -40,7 +40,7 @@ RUN \
 FROM base AS runner
 
 LABEL org.opencontainers.image.source=https://github.com/icco/photos
-LABEL org.opencontainers.image.description="ghcr.io/icco/photos container image"
+LABEL org.opencontainers.image.description="Photo uploader and gallery for photos.natwelch.com; a Next.js app for uploading and viewing personal photos."
 LABEL org.opencontainers.image.licenses=MIT
 WORKDIR /app
 
