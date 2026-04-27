@@ -38,6 +38,10 @@ RUN \
 
 # Production image, copy all the files and run next
 FROM base AS runner
+
+LABEL org.opencontainers.image.source=https://github.com/icco/photos
+LABEL org.opencontainers.image.description="ghcr.io/icco/photos container image"
+LABEL org.opencontainers.image.licenses=MIT
 WORKDIR /app
 
 ENV NODE_ENV=production
