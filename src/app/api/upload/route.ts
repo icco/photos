@@ -15,6 +15,8 @@ export const POST = async (req: Request) => {
     const data = await req.formData();
     const files = data.getAll("photo") as File[];
 
+    const uploaded: { path: string; url: string }[] = [];
+
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
       const ext = path.extname(file.name).toLowerCase();
@@ -65,9 +67,16 @@ export const POST = async (req: Request) => {
 
         blobStream.end(buffer);
       });
+
+      uploaded.push({
+        path: filePath,
+        url: `https://icco.imgix.net/${filePath}`,
+      });
     }
 
-    return new NextResponse(JSON.stringify({ success: true }));
+    return new NextResponse(
+      JSON.stringify({ success: true, files: uploaded })
+    );
   } catch (error) {
     console.error("An error occurred:", error); // Log the error details on the server
     return new NextResponse(
