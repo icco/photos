@@ -48,7 +48,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
-        <ThemeProvider defaultTheme="system" enableSystem>
+        <ThemeProvider>
           <Header />
           <WebVitals analyticsPath="/analytics/photos" />
           <main className="px-4 mx-auto max-w-xl py-8">{children}</main>
