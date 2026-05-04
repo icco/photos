@@ -35,7 +35,7 @@
     "@typescript-eslint/parser": "^8.58.2",
     "daisyui": "^5.1.14",
     "dlx": "^0.2.1",
-    "eslint": "^10.2.0",
+    "eslint": "^10.3.0",
     "eslint-config-next": "^16.2.4",
     "eslint-config-prettier": "^10.0.0",
     "eslint-plugin-import": "^2.32.0",
