@@ -32,7 +32,7 @@
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@typescript-eslint/eslint-plugin": "^8.58.2",
-    "@typescript-eslint/parser": "^8.58.2",
+    "@typescript-eslint/parser": "^8.59.2",
     "daisyui": "^5.1.14",
     "dlx": "^0.2.1",
     "eslint": "^10.3.0",
