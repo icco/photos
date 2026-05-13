@@ -18,7 +18,7 @@
     "next": "^16.2.6",
     "next-secure-headers": "^2.2.0",
     "react": "^19.2.5",
-    "react-dom": "^19.2.5",
+    "react-dom": "^19.2.6",
     "tsid-ts": "^0.0.9",
     "vivus": "^0.4.6"
   },
