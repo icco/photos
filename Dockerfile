@@ -1,4 +1,5 @@
 FROM node:26-slim AS base
+RUN npm install -g corepack@latest && corepack enable
 
 # Install dependencies only when needed
 FROM base AS deps
