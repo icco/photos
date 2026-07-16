@@ -9,6 +9,9 @@ const domain = process.env.DOMAIN || `http://${hostname}:${port}`;
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "standalone",
+  // Bundled (turbopack) node-fetch inside the GCS auth stack breaks on node
+  // 26 (ERR_STREAM_PREMATURE_CLOSE on every token fetch); run it unbundled.
+  serverExternalPackages: ["@google-cloud/storage"],
   poweredByHeader: false,
   trailingSlash: false,
   productionBrowserSourceMaps: true,
