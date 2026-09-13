@@ -16,9 +16,9 @@ Use pnpm:
 
 ## Architecture & Layout
 
-- `pages/` or `app/` — Routing and gallery views.
-- `lib/` — GCS client and photo metadata loaders.
-- `components/` — Image display, grid, and navigation components.
+- `src/app/` — Routing and gallery views.
+- `src/app/api/` — GCS-backed upload and photo-list API handlers.
+- `src/components/` — Image display, grid, and navigation components.
 
 ## Conventions
 
