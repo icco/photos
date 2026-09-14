@@ -17,7 +17,7 @@
     "@heroicons/react": "^2.2.0",
     "@icco/react-common": "^2026.10720.3",
     "date-fns": "^4.4.0",
-    "jsdom": "^29.1.1",
+    "jsdom": "^30.0.1",
     "next": "^16.2.10",
     "next-secure-headers": "^2.2.0",
     "react": "^19.2.7",
