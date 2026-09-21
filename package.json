@@ -13,7 +13,7 @@
     "lint": "eslint . --fix"
   },
   "dependencies": {
-    "@google-cloud/storage": "^8.1.0",
+    "@google-cloud/storage": "^8.2.0",
     "@heroicons/react": "^2.2.0",
     "@icco/react-common": "^2026.10901.6",
     "date-fns": "^4.4.0",
