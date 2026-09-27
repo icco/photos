@@ -27,7 +27,7 @@ const robotoMono = Roboto_Mono({
 
 export const metadata: Metadata = {
   title: "Photos",
-  description: "",
+  description: "Upload, browse, and share your photos.",
 };
 
 export const viewport: Viewport = {

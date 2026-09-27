@@ -100,6 +100,8 @@ export default function UploadForm() {
 
   return (
     <div className="">
+      <h1 className="mb-2 text-3xl font-bold sm:text-5xl">Photos</h1>
+      <p className="mb-6">Upload, browse, and share your photos.</p>
       {successModalOpen && (
         <SuccessModal onClose={() => setSuccessModalOpen(false)} />
       )}
