@@ -83,7 +83,7 @@ const nextConfig = {
                 "'self'",
                 "data:",
                 "https://*.natwelch.com",
-                "https://icco.imgix.net",
+                "https://images.natwelch.com",
                 "https://storage.googleapis.com",
               ],
               // script-src 'self' 'unsafe-inline'
@@ -118,7 +118,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "icco.imgix.net",
+        hostname: "images.natwelch.com",
         port: "",
         pathname: "/photos/**",
       },

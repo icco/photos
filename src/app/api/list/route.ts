@@ -22,7 +22,7 @@ export const GET = async () => {
     });
     const photos = files[0]
       .sort((a, b) => b.name.localeCompare(a.name))
-      .map((file) => `https://icco.imgix.net/${file.name}`);
+      .map((file) => `https://images.natwelch.com/${file.name}`);
 
     return new NextResponse(JSON.stringify({ photos }));
   } catch (error) {

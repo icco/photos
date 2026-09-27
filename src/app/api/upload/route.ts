@@ -70,7 +70,7 @@ export const POST = async (req: Request) => {
 
       uploaded.push({
         path: filePath,
-        url: `https://icco.imgix.net/${filePath}`,
+        url: `https://images.natwelch.com/${filePath}`,
       });
     }
 
