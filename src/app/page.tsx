@@ -115,7 +115,12 @@ export default function UploadForm() {
           name="file"
           multiple={true}
           ref={fileInput}
+          aria-describedby="upload-help"
         />
+        <p id="upload-help" className="text-sm opacity-75">
+          JPEG, PNG, GIF, WebP, SVG, HEIC, or HEIF. Choose multiple photos to upload
+          them together.
+        </p>
         <div className="flex-row">
           <button
             className="btn btn-primary w-1/5 p-2"
