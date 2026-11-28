@@ -1,5 +1,5 @@
-import { InformationCircleIcon } from "@heroicons/react/24/outline";
 import { SiteHeader } from "@icco/react-common/SiteHeader";
+import { Info } from "lucide-react";
 
 export default function Header() {
   return (
@@ -9,7 +9,7 @@ export default function Header() {
           name: "About",
           href: "/about",
           prefetch: false,
-          icon: <InformationCircleIcon className="h-5 w-5" />,
+          icon: <Info className="h-5 w-5" />,
         },
       ]}
     />
